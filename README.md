@@ -10,17 +10,17 @@ This can get **really annoying** if your club has *dozens* of members...
 
 ## The Solution 
 
-This script checks each member of your club on [Auggie Life](), and if they don't have a match in [Augsburg Registration](registration.augsburg.edu), they get **removed** from the Auggie Life roster. We've tested this script manually, and it **doesn't remove anyone it shouldn't**. 
+This script checks each member of your club on [Auggie Life](https://augsburg.campuslabs.com/engage/), and if they don't have a match in [Augsburg Registration](registration.augsburg.edu), they get **removed** from the Auggie Life roster. We've tested this script manually, and it **doesn't remove anyone it shouldn't**. 
 
 ## Safety & Privacy
 
-This is all done **above-board**. The script uses chromium to prompt you to log in to augnet, and uses your credentials to access Auggie Life. So someone without remove permissions (*not* a club officer) **won't be able to kick everyone out of your club**. 
+This is all done **above-board**. The script opens a chrome window, prompts you to log in to auget, and uses your credentials to access Auggie Life. So someone without remove permissions (*not* a club officer) **won't be able to kick everyone out of your club**. 
 
-All of this is done **locally on your computer**, so *no* third party collecting your log-in info. 
+All of this is done **locally on your computer**, so *no* third party collecting your log-in info. Aside from Google, which would have done that anyway. 
 
 ## Setup
 
-All you need is a computer with python, and to install the required packages. You can copy and paste this into your terminal:
+All you need is a computer with Python and Chrome, and to install the required packages. You can copy and paste this into your terminal:
 
 ```bash
 pip install --upgrade playwright beautifulsoup4 requests
