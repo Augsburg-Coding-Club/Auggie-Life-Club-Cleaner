@@ -5,12 +5,12 @@
 Removing old club members manually on Auggie Life is **really annoying**... 
 
 For each name, you have to try to remember if they still go to the school anymore...
-And if you can't remember, you have to manually check records and registration!
+And if you can't remember, you have to manually check members of the Augsburg Directory!
 This can get **impossibly tedious** if your club has *dozens* of members...
 
 ## The Solution 
 
-This script checks each member of your club on [Auggie Life](https://augsburg.campuslabs.com/engage/), and if they don't have a match in [Augsburg Registration](https://registration.augsburg.edu/recreg), they get **removed** from the Auggie Life roster. We've tested this script manually, and it **doesn't remove anyone it shouldn't**. 
+This script checks each member of your club on [Auggie Life](https://augsburg.campuslabs.com/engage/), and if they don't have a match in the [Augsburg Directory]([https://registration.augsburg.edu/recreg](https://augnet.augsburg.edu/protected/directory/search.pl)), they get **removed** from the Auggie Life roster. We've tested this script manually, and it **doesn't remove anyone it shouldn't**. 
 
 ## Safety & Privacy
 
