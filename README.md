@@ -10,7 +10,7 @@ This can get **impossibly tedious** if your club has *dozens* of members...
 
 ## The Solution 
 
-This script checks each member of your club on [Auggie Life](https://augsburg.campuslabs.com/engage/), and if they don't have a match in [Augsburg Registration](registration.augsburg.edu), they get **removed** from the Auggie Life roster. We've tested this script manually, and it **doesn't remove anyone it shouldn't**. 
+This script checks each member of your club on [Auggie Life](https://augsburg.campuslabs.com/engage/), and if they don't have a match in [Augsburg Registration](https://registration.augsburg.edu/), they get **removed** from the Auggie Life roster. We've tested this script manually, and it **doesn't remove anyone it shouldn't**. 
 
 ## Safety & Privacy
 
