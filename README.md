@@ -31,7 +31,7 @@ python -m playwright install chromium
 
 And make sure to **edit the url** to reflect your club's roster page.
 
-It's stored in the variable **ROSTER_BASE**
+It's stored in the variable **ROSTER_BASE**.
 
 Right now, it's `https://augsburg.campuslabs.com/engage/actioncenter/organization/acc/roster`.
 
