@@ -16,7 +16,7 @@ This script checks each member of your club on [Auggie Life](https://augsburg.ca
 
 This is all done **above-board**. The script opens a chrome window, prompts you to log in to auget, and uses your credentials to access Auggie Life. So someone without remove permissions (*not* a club officer) **won't be able to kick everyone out of your club**. 
 
-All of this is done **locally on your computer**, so *no* third party collecting your log-in info. Aside from Google, which would have done that anyway. 
+All of this is done **locally on your computer**, so *no* third party collecting your login info. Aside from Google, which would have done that anyway. 
 
 ## Setup
 
