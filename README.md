@@ -18,6 +18,8 @@ This is all done **above-board**. The script opens a chrome window, prompts you 
 
 All of this is done **locally on your computer**, so *no* third party collecting your login info. Aside from Google, which would have done that anyway. 
 
+Before the script removes anyone, it produces a list of names, asks you to type "yes" to proceed. 
+
 ## Setup
 
 All you need is a computer with Python and Chrome, and to install the required packages. You can copy and paste this into your terminal:
