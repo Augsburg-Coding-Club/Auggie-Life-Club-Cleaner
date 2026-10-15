@@ -1,12 +1,12 @@
 """
 roster_manager.py
 
-1. opens a browser window w/ ur saved profile, u do SSO + Duo if asked, it continuez by itself
+1. opens a browser window w/ ur saved profile, u do SSO + Duo if asked, it continues by itself
 2. reads the Auggie Life (Campus Labs Engage) roster pages in the browser
 3. copies the browser's logged-in cookiez into a plain requests session, closes the browser
-4. 1 exact-match directory POST per member (first + last), straight 2 the server
-5. prints + savez whoever has no match
-6. after u type yes, ends Auggie Life membership 4 each of them (same buttons u'd click), then re-checks the roster
+4. 1 exact-match directory POST per member (first + last), straight to the server
+5. prints + saves whoever has no match
+6. after you type yes, ends Auggie Life membership for each of them (same buttons you'd click), then re-checks the roster
 
 setup (1 time):
     pip install --upgrade playwright beautifulsoup4 requests
@@ -36,7 +36,7 @@ OUTPUT_CSV = SCRIPT_DIR / "unmatched_members.csv"
 ERROR_HTML = SCRIPT_DIR / "directory_error.html"  # only written if the session dies mid-run
 
 # delay settingz (>_<)
-LOGIN_TIMEOUT_SECONDS = 300  # how long 2 wait 4 u 2 finish SSO + Duo
+LOGIN_TIMEOUT_SECONDS = 300  # how long to wait for u to finish SSO + Duo
 MAX_WORKERS = 2              # parallel directory requestz. low on purpose
 DELAY_SECONDS = 0.25         # pause per request, per worker
 
@@ -50,7 +50,7 @@ class SessionExpired(Exception):
 # ---------------------------------------------------------------------------
 
 def safe_goto(page, url):
-    #page.goto that doesnt crash when SSO / Duo redirectz interrupt it.
+    #page.goto that doesnt crash when SSO / Duo redirects interrupt it.
     try:
         page.goto(url, wait_until="domcontentloaded")
     except PlaywrightError as e:
@@ -70,13 +70,13 @@ def page_ready(page, selector):
 
 
 def ensure_logged_in(page, url, selector, label):
-    #Go 2 url. If SSO showz up, wait while u finish SSO + Duo, then continue.
+    #Go to url. If SSO showz up, wait while u finish SSO + Duo, then continue.
     safe_goto(page, url)
     if page_ready(page, selector):
         print(f"[{label}] already logged in (˶˃ ᵕ ˂˶)")
         return
 
-    print(f"[{label}] finish SSO + Duo in the browser window, the script continuez by itself...")
+    print(f"[{label}] finish SSO + Duo in the browser window, the script continues by itself...")
     target_host = urlparse(url).netloc
     deadline = time.time() + LOGIN_TIMEOUT_SECONDS
     stable_polls = 0
@@ -154,7 +154,7 @@ def load_roster(page):
 
 
 # ---------------------------------------------------------------------------
-# DIRECTORY  (direct requestz, no browser)  🐶
+# DIRECTORY  (direct requests, no browser)  
 # ---------------------------------------------------------------------------
 
 _thread_local = threading.local()
@@ -181,7 +181,7 @@ def check_member(member, jar, user_agent):
     }
     r = session.post(DIRECTORY_URL, data=form, timeout=30)
 
-    # an expired session redirectz 2 SSO / external_redirect.html, check b4 status code
+    # an expired session redirects 2 SSO / external_redirect.html, check before status code
     final = urlparse(r.url)
     if final.netloc != "augnet.augsburg.edu" or "/protected/directory/" not in final.path:
         ERROR_HTML.write_text(r.text, encoding="utf-8")
@@ -266,7 +266,7 @@ def end_memberships(page, to_end, me):
 
 
 # ---------------------------------------------------------------------------
-# MAIN  (˶˃ ᵕ ˂˶)
+# MAIN  
 # ---------------------------------------------------------------------------
 
 def main():
@@ -306,10 +306,10 @@ def main():
                         if not matched:
                             unmatched.append(m)
             except SessionExpired as e:
-                print(f"\nAugNet session expired mid-run ({e}). Run it again. Response saved 2 {ERROR_HTML}")
+                print(f"\nAugNet session expired mid-run ({e}). Run it again. Response saved to {ERROR_HTML}")
                 return
 
-            print(f"\n{len(unmatched)} of {len(members)} roster memberz had no directory match")
+            print(f"\n{len(unmatched)} of {len(members)} roster members had no directory match")
             with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as f:
                 writer = csv.DictWriter(f, fieldnames=["first", "last", "positions"])
                 writer.writeheader()
